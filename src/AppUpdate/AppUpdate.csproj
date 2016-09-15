@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{85AD9029-A7BA-43D6-B3DF-95A95A31C818}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Wilbit.AppUpdate</RootNamespace>
+    <AssemblyName>Wilbit.AppUpdate</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppUpdater.cs" />
+    <Compile Include="Configuration\IAppInfo.cs" />
+    <Compile Include="Configuration\IFeedSource.cs" />
+    <Compile Include="Configuration\ILogger.cs" />
+    <Compile Include="Exceptions\AppUpdateException.cs" />
+    <Compile Include="Exceptions\FeedParserException.cs" />
+    <Compile Include="Exceptions\FeedSourceException.cs" />
+    <Compile Include="Exceptions\FileDownloaderException.cs" />
+    <Compile Include="Exceptions\HashInfoException.cs" />
+    <Compile Include="Exceptions\UpdateScriptGeneratorException.cs" />
+    <Compile Include="Exceptions\UpdateServerException.cs" />
+    <Compile Include="Feed.cs" />
+    <Compile Include="FileDownloader.cs" />
+    <Compile Include="HashInfo.cs" />
+    <Compile Include="Helpers\ShellHelper.cs" />
+    <Compile Include="Helpers\UrlHelper.cs" />
+    <Compile Include="InstallResultEnum.cs" />
+    <Compile Include="PInvoke\Kernel32NativeMethods.cs" />
+    <Compile Include="ProgressInfo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServerVersionInfo.cs" />
+    <Compile Include="UpdateLoopTimerHolder.cs" />
+    <Compile Include="UpdateScriptGenerator.cs" />
+    <Compile Include="UpdateServer.cs" />
+    <Compile Include="XmlParser.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
