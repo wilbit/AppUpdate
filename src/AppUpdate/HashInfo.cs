@@ -1,7 +1,6 @@
 using System;
-using System.IO;
-using System.Security.Cryptography;
 using Wilbit.AppUpdate.Exceptions;
+using Wilbit.AppUpdate.Helpers;
 
 namespace Wilbit.AppUpdate
 {
@@ -30,14 +29,8 @@ namespace Wilbit.AppUpdate
 
             if (Algo.Equals("MD5", StringComparison.OrdinalIgnoreCase))
             {
-                using (var fileStream = new FileStream(fileLocation, FileMode.Open, FileAccess.Read))
-                using (var md5 = MD5.Create())
-                {
-                    var hash = md5.ComputeHash(fileStream);
-                    var hashAsString = BitConverter.ToString(hash).Replace("-", string.Empty);
-
-                    return string.Equals(hashAsString, Value, StringComparison.OrdinalIgnoreCase);
-                }
+                var hash = MD5Helper.GetHashForFile(fileLocation);
+                return string.Equals(hash, Value, StringComparison.OrdinalIgnoreCase);
             }
 
             throw new NotSupportedException($"Not supported hash algorithm \"{Algo}\"");
