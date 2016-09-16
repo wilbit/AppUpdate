@@ -2,7 +2,7 @@
 
 namespace Wilbit.AppUpdate.Configuration
 {
-    public interface ILogger
+    public interface IAppUpdateLogger
     {
         void Error(Exception exception);
         void Error(string message, Exception exception);

@@ -8,22 +8,25 @@ namespace Wilbit.AppUpdate.Tests
         private const string FeedSample =
             "<?xml version=\"1.0\" encoding=\"utf-8\" ?>\n" +
             "<Deployment>\n" +
-            "  <File Name=\"FileName.exe\" Version=\"1.0.0.0\" HashAlgo=\"MD5\" HashValue=\"TestValue\" />\n" +
+            "  <File name=\"FileName.exe\" version=\"1.0.0.0\">\n" +
+            "    <Hash algo=\"AlgoName\" value=\"HashValue\" />\n" +
+            "  </File>\n" +
             "</Deployment>";
 
         [Test]
-        public void GetInfoFromXml_should_return([Values(FeedSample)] string xml)
+        public void GetInfoFromXml_should_return()
         {
             var xmlParser = new XmlParser();
 
-            var serverVersion = xmlParser.GetInfoFromXml(xml);
+            var serverVersion = xmlParser.GetInfoFromXml(FeedSample);
 
             Assert.AreEqual("FileName.exe", serverVersion.FileName);
             Assert.IsNotNull(serverVersion.Version);
             Assert.AreEqual("1.0.0.0", serverVersion.Version.ToString());
+
             Assert.IsNotNull(serverVersion.Hash);
-            Assert.AreEqual("MD5", serverVersion.Hash.Algo);
-            Assert.AreEqual("TestValue", serverVersion.Hash.Value);
+            Assert.AreEqual("AlgoName", serverVersion.Hash.Algo);
+            Assert.AreEqual("HashValue", serverVersion.Hash.Value);
         }
     }
 }

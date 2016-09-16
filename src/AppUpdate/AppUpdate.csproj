@@ -38,7 +38,7 @@
     <Compile Include="AppUpdater.cs" />
     <Compile Include="Configuration\IAppInfo.cs" />
     <Compile Include="Configuration\IFeedSource.cs" />
-    <Compile Include="Configuration\ILogger.cs" />
+    <Compile Include="Configuration\IAppUpdateLogger.cs" />
     <Compile Include="Exceptions\AppUpdateException.cs" />
     <Compile Include="Exceptions\FeedParserException.cs" />
     <Compile Include="Exceptions\FeedSourceException.cs" />

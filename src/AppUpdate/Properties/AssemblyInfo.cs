@@ -5,11 +5,11 @@ using Wilbit.AppUpdate.Properties;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("AppUpdate")]
+[assembly: AssemblyTitle("Wilbit.AppUpdate")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("AppUpdate")]
+[assembly: AssemblyProduct("Wilbit.AppUpdate")]
 [assembly: AssemblyCopyright("Copyright © 2016 MIT License")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

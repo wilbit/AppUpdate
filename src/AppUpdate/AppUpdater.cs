@@ -11,7 +11,7 @@ namespace Wilbit.AppUpdate
         private static readonly TimeSpan DefaultTimeout = TimeSpan.FromSeconds(30);
 
         private readonly IFeedSource _feedSource;
-        private readonly ILogger _logger;
+        private readonly IAppUpdateLogger _logger;
         private readonly FileDownloader _downloader = new FileDownloader();
         private readonly UpdateScriptGenerator _scriptGenerator = new UpdateScriptGenerator();
         private readonly UpdateServer _updateServer = new UpdateServer();
@@ -20,7 +20,7 @@ namespace Wilbit.AppUpdate
         private readonly CountErrorLogger _checkUpdatesErrorLoger;
         private readonly CountErrorLogger _updateErrorLoger;
 
-        public AppUpdater(IFeedSource feedSource, ILogger logger)
+        public AppUpdater(IFeedSource feedSource, IAppUpdateLogger logger)
         {
             if (feedSource == null) throw new ArgumentNullException(nameof(feedSource));
             if (logger == null) throw new ArgumentNullException(nameof(logger));
@@ -194,9 +194,9 @@ namespace Wilbit.AppUpdate
             private readonly object _sync = new object();
 
             private int _count;
-            private readonly ILogger _logger;
+            private readonly IAppUpdateLogger _logger;
 
-            public CountErrorLogger(ILogger logger)
+            public CountErrorLogger(IAppUpdateLogger logger)
             {
                 _logger = logger;
             }

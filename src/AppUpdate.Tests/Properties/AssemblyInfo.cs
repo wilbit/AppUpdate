@@ -4,11 +4,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("AppUpdate.Tests")]
+[assembly: AssemblyTitle("Wilbit.AppUpdate.Tests")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("AppUpdate.Tests")]
+[assembly: AssemblyProduct("Wilbit.AppUpdate.Tests")]
 [assembly: AssemblyCopyright("Copyright © 2016 MIT License")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

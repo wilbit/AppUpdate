@@ -10,20 +10,20 @@ namespace Wilbit.AppUpdate
         {
             try
             {
-                var serializer = new XmlSerializer(typeof(DeploymentXml));
-                FileXml fileXml;
+                var serializer = new XmlSerializer(typeof(DeploymentXmlClass));
+                DeploymentXmlClass deployment;
                 using (var stringReader = new StringReader(xml))
                 {
-                    var xmlClass = (DeploymentXml) serializer.Deserialize(stringReader);
-                    fileXml = xmlClass.File;
+                    deployment = (DeploymentXmlClass) serializer.Deserialize(stringReader);
                 }
 
-                var result = new ServerVersionInfo
-                (
-                    fileName: fileXml.Name,
-                    version: new Version(fileXml.Version),
-                    hash: new HashInfo(algo: fileXml.HashAlgo, value: fileXml.HashValue)
-                );
+                var result = new ServerVersionInfo(
+                    fileName: deployment.File?.Name ?? string.Empty,
+                    version: new Version(deployment.File?.Version ?? "0.0.0.0"),
+                    hash: new HashInfo(
+                        algo: deployment.File?.Hash?.Algo ?? string.Empty,
+                        value: deployment.File?.Hash?.Value ?? string.Empty)
+                    );
 
                 return result;
             }
@@ -34,26 +34,33 @@ namespace Wilbit.AppUpdate
         }
 
         [XmlRoot("Deployment")]
-        public class DeploymentXml
+        public class DeploymentXmlClass
         {
             [XmlElement("File")]
-            public FileXml File { get; set; }
+            public FileXmlClass File { get; set; }
         }
 
         [XmlRoot("File")]
-        public class FileXml
+        public class FileXmlClass
         {
-            [XmlAttribute("Name")]
+            [XmlAttribute("name")]
             public string Name { get; set; }
 
-            [XmlAttribute("Version")]
+            [XmlAttribute("version")]
             public string Version { get; set; }
 
-            [XmlAttribute("HashAlgo")]
-            public string HashAlgo { get; set; }
+            [XmlElement("Hash")]
+            public HashXmlClass Hash { get; set; }
+        }
 
-            [XmlAttribute("HashValue")]
-            public string HashValue { get; set; }
+        [XmlRoot("Hash")]
+        public class HashXmlClass
+        {
+            [XmlAttribute("algo")]
+            public string Algo { get; set; }
+
+            [XmlAttribute("value")]
+            public string Value { get; set; }
         }
     }
 }
