@@ -22,7 +22,8 @@ namespace Wilbit.AppUpdate
                     version: new Version(deployment.File?.Version ?? "0.0.0.0"),
                     hash: new HashInfo(
                         algo: deployment.File?.Hash?.Algo ?? string.Empty,
-                        value: deployment.File?.Hash?.Value ?? string.Empty)
+                        value: deployment.File?.Hash?.Value ?? string.Empty),
+                    comment: deployment.Comment ?? string.Empty
                     );
 
                 return result;
@@ -38,6 +39,9 @@ namespace Wilbit.AppUpdate
         {
             [XmlElement("File")]
             public FileXmlClass File { get; set; }
+
+            [XmlElement("Comment")]
+            public string Comment { get; set; }
         }
 
         [XmlRoot("File")]

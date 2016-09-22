@@ -40,7 +40,7 @@ namespace Wilbit.AppUpdate.Properties
 {
     internal class VersionInfo
     {
-        private const string ThreeNumberVersion = "0.1.0";
+        private const string ThreeNumberVersion = "0.2.0";
         private const string Build = "0";
 
         public const string NugetVersion = ThreeNumberVersion;

@@ -30,7 +30,8 @@ namespace Wilbit.FeedGenerator
                             Algo = algo,
                             Value = hash
                         }
-                    }
+                    },
+                    Comment = string.Empty
                 };
 
                 using (var fileStream = new FileStream(argsHelper.Feed, FileMode.Create))

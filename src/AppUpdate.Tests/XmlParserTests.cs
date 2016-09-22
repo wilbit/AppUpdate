@@ -11,6 +11,7 @@ namespace Wilbit.AppUpdate.Tests
             "  <File name=\"FileName.exe\" version=\"1.0.0.0\">\n" +
             "    <Hash algo=\"AlgoName\" value=\"HashValue\" />\n" +
             "  </File>\n" +
+            "  <Comment>123\n123</Comment>\n" +
             "</Deployment>";
 
         [Test]
@@ -27,6 +28,8 @@ namespace Wilbit.AppUpdate.Tests
             Assert.IsNotNull(serverVersion.Hash);
             Assert.AreEqual("AlgoName", serverVersion.Hash.Algo);
             Assert.AreEqual("HashValue", serverVersion.Hash.Value);
+
+            Assert.AreEqual("123\n123", serverVersion.Comment);
         }
     }
 }
