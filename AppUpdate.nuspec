@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <id>Wilbit.AppUpdate</id>
+        <version>0.2.0</version>
+        <authors>Evgeny Akhtimirov</authors>
+        <owners>Evgeny Akhtimirov</owners>
+        <licenseUrl>https://github.com/wilbit/AppUpdate/blob/master/LICENSE</licenseUrl>
+        <projectUrl>https://github.com/wilbit/AppUpdate</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Library for update your application</description>
+    </metadata>
+    <files>
+        <file src="bin\Release\Wilbit.AppUpdate.dll" target="lib\net40-client\Wilbit.AppUpdate.dll" />
+        <file src="bin\Release\FeedGenerator.exe.config" target="tools\net40-client\FeedGenerator.exe.config" />
+        <file src="bin\Release\FeedGenerator.exe" target="tools\net40-client\FeedGenerator.exe" />
+        <file src="bin\Release\Wilbit.AppUpdate.dll" target="tools\net40-client\Wilbit.AppUpdate.dll" />
+    </files>
+</package>
